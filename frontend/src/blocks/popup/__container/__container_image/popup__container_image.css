@@ -1,0 +1,16 @@
+.popup__container_image {
+  padding: 0;
+  width: auto;
+  height:auto;
+  max-width: 75vw;
+  background-color: black;
+  box-sizing: border-box;
+  
+}
+
+@media screen and (max-width: 736px) {
+  .popup__container_image {
+    max-width: 240px;
+    
+  }
+}

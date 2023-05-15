@@ -1,0 +1,11 @@
+.element__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px 32px 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}

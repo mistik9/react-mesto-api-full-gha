@@ -1,0 +1,17 @@
+.element__image {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #c4c4c4;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+  height: 282px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 736px) {
+  .element__image {
+    
+    min-height: 299px;
+  }
+}

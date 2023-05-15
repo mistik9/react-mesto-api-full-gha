@@ -1,0 +1,13 @@
+.popup__icon {
+    background-image: url(../../../images/nope.svg);
+    background-position: 100% 100%;
+    width: 120px;
+    height: 120px;
+    margin: 60px auto 0;
+}
+
+@media screen and (max-width: 736px) {
+    .popup__icon {
+        margin:25px auto 0;
+    }
+}

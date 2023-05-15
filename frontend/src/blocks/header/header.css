@@ -1,0 +1,14 @@
+.header {
+  border-bottom: 1px solid rgba(54, 54, 54, .7);
+  max-width: 880px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+
+}
+
+@media screen and (max-width: 736px) {
+  .header {
+    width: 100%;
+  }
+}

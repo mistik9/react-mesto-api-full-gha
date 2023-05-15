@@ -1,0 +1,12 @@
+.element__bottom-like {
+  min-width: 22px;
+  height: 19px;
+  background: url(../../../images/like.svg) center center / 100% no-repeat;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.element__bottom-like:hover {
+  opacity: 0.5;
+}

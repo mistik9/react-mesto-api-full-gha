@@ -1,0 +1,11 @@
+.content {
+  max-width: 880px;
+  box-sizing: border-box;
+  min-height: 70vh;
+}
+
+@media screen and (max-width: 568px) {
+  .content {
+    width: 100%;
+  }
+}

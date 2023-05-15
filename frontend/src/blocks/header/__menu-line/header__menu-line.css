@@ -1,0 +1,14 @@
+.header__menu-line {
+display: none;
+margin-bottom: 9px;
+cursor: pointer;
+border-bottom: 3px solid #FFFFFF;
+width: 24px;
+
+}
+
+@media screen and (max-width: 736px) {
+    .header__menu-line {
+        display: block;
+    }
+}
