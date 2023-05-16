@@ -9,7 +9,6 @@ const {
 } = require('./routes/index');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const URL = 'mongodb://127.0.0.1:27017/mestodb';
@@ -20,8 +19,6 @@ app.use(express.json());
 mongoose.connect(URL)
   .then(console.log('DB is connected'))
   .catch((err) => console.log(err));
-
-app.use(requestLogger);
 
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
@@ -34,7 +31,6 @@ app.use('/cards', cardRouter);
 app.use((req, res) => {
   res.status(NOT_FOUND).send({ message: 'Страница не найдена' });
 });
-app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
