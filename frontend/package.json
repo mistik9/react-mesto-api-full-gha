@@ -1,5 +1,6 @@
 {
   "name": "react-mesto-auth",
+  "homepage": "https://mistik9mesto.nomoredomains.monster/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
