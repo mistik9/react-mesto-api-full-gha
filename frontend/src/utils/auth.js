@@ -47,7 +47,7 @@ class Auth {
     }
 }
 const auth = new Auth({
-    baseUrl: 'https://auth.nomoreparties.co',
+    baseUrl: 'https://api.mistik9mesto.nomoredomains.monster/',
 
 });
 export default auth;

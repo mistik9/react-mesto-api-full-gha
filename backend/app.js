@@ -16,6 +16,23 @@ const URL = 'mongodb://127.0.0.1:27017/mestodb';
 const app = express();
 app.use(express.json());
 
+const allowedCors = [
+  'https://mistik9mesto.nomoredomains.monster/',
+  'https://api.mistik9mesto.nomoredomains.monster/',
+  'localhost:3000'
+];
+
+app.use(function(req, res, next) {
+  const { origin } = req.headers; 
+      if (allowedCors.includes(origin)) {
+      // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
+      res.header('Access-Control-Allow-Origin', origin);
+  }
+
+
+  next();
+}); 
+
 mongoose.connect(URL)
   .then(console.log('DB is connected'))
   .catch((err) => console.log(err));
