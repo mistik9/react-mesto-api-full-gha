@@ -22,7 +22,7 @@ function Register({ onRegister }) {
     return (
         <div>
             <Header>
-            <Link to="/sign-in" className="header__menu-item">Войти</Link>
+            <Link to="/signin" className="header__menu-item">Войти</Link>
             </Header>
             <div className="login content">
                 <h2 className="login__title">Регистрация</h2>
@@ -35,7 +35,7 @@ function Register({ onRegister }) {
                     <span id="about-error" className="error"></span>
                     <button className="login__save" type="submit">Зарегистрироваться</button>
                 </form>
-                <div className="login__sign-in">
+                <div className="login__signin">
                     <p className="login__sign-in-text">Уже зарегистрированы? </p>
                     <Link to="/register" className="login__sign-in-link"> Войти</Link>
                 </div>

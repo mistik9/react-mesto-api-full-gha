@@ -25,7 +25,7 @@ function Login({ onLogin }) {
     return (
         <div>
             <Header>
-                <Link to="/sign-up" className="header__menu-item">Регистрация</Link>
+                <Link to="/signup" className="header__menu-item">Регистрация</Link>
             </Header>
             <div className="login content">
                 <h2 className="login__title">Вход</h2>

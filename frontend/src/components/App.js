@@ -63,7 +63,7 @@ function App() {
       .catch((err) => {
         setIsInfoTooltipOpen(true)
         setInfoMessage({ isSuccess: false, message: "Что-то пошло не так! Попробуйте ещё раз." })
-        console.log("Ошибка авторизации")
+        console.log("Ошибка авторизации!")
       })
   }
 
@@ -197,9 +197,9 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <Routes>
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} onShowInfoMessage={handleShowInfoMessage} />} />
-          <Route path="/sign-up" element={<Register onRegister={handleRegister} onShowInfoMessage={handleShowInfoMessage} />} />
-          <Route path="*" element={loggedIn ? <Navigate to="/" /> : <Navigate to="/sign-in" />} />
+          <Route path="/signin" element={<Login onLogin={handleLogin} onShowInfoMessage={handleShowInfoMessage} />} />
+          <Route path="/signup" element={<Register onRegister={handleRegister} onShowInfoMessage={handleShowInfoMessage} />} />
+          <Route path="*" element={loggedIn ? <Navigate to="/" /> : <Navigate to="/signin" />} />
           <Route path="/" element={<ProtectedRoute loggedIn={loggedIn}>
             <Header email={email} loggedIn={loggedIn} onLogOut={handleLogOut} />
             <Main

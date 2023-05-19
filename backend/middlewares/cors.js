@@ -1,11 +1,12 @@
 const allowedCors = [
   'https://mistik9mesto.nomoredomains.monster/',
-  'https://api.mistik9mesto.nomoredomains.monster/',
+  'http://mistik9mesto.nomoredomains.monster/',
   'localhost:3000',
 ];
 
 const cors = (req, res, next) => {
   const { origin } = req.headers;
+  console.log(req.headers)
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
