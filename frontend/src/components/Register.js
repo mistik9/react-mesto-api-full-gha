@@ -6,7 +6,6 @@ function Register({ onRegister }) {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
-
     function handleSubmit(e) {
         e.preventDefault();
         onRegister({ email, password })
@@ -22,7 +21,7 @@ function Register({ onRegister }) {
     return (
         <div>
             <Header>
-            <Link to="/sign-in" className="header__menu-item">Войти</Link>
+                <Link to="/signin" className="header__menu-item">Войти</Link>
             </Header>
             <div className="login content">
                 <h2 className="login__title">Регистрация</h2>

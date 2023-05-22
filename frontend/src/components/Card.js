@@ -32,7 +32,6 @@ function Card({ card, onCardClick, onDeleteClick, onCardLike }) {
         </div>
       </div>
     </li>
-
   )
 }
 

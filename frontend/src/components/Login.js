@@ -3,12 +3,9 @@ import React from "react";
 import Header from "./Header";
 import { Link, Route } from "react-router-dom";
 
-
-
 function Login({ onLogin }) {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +22,7 @@ function Login({ onLogin }) {
     return (
         <div>
             <Header>
-                <Link to="/sign-up" className="header__menu-item">Регистрация</Link>
+                <Link to="/signup" className="header__menu-item">Регистрация</Link>
             </Header>
             <div className="login content">
                 <h2 className="login__title">Вход</h2>

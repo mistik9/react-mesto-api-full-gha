@@ -1,7 +1,8 @@
 const allowedCors = [
-  'https://mistik9mesto.nomoredomains.monster/',
-  'https://api.mistik9mesto.nomoredomains.monster/',
-  'localhost:3000',
+  // 'https://mistik9mesto.nomoredomains.monster/',
+  // 'https://api.mistik9mesto.nomoredomains.monster/',
+  // 'http://127.0.0.1:3001',
+  'http://localhost:3000',
 ];
 
 const cors = (req, res, next) => {
@@ -9,6 +10,7 @@ const cors = (req, res, next) => {
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
+    // res.header('Access-Control-Allow-Credentials', true);
   }
   const { method } = req;
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';

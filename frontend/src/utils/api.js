@@ -149,8 +149,9 @@ class Api {
 
 
 const api = new Api({
-    baseUrl: 'https://api.mistik9mesto.nomoredomains.monster/',
+    baseUrl: 'http://localhost:3001',
     headers: {
+        authorization: 'e1a3eb7f-14f7-4ac0-a07c-6d12f2e5fdaa',
         'Content-Type': 'application/json'
     }
 });
