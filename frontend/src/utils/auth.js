@@ -28,7 +28,6 @@ class Auth {
             body: JSON.stringify({ email, password })
         })
             .then(res => {
-                console.log(res.ok)
                 if (res.ok) return res.json();
             })
 
@@ -43,8 +42,7 @@ class Auth {
             }
         })
             .then(res => {
-                console.log(res.ok)
-                if (res.ok) return res.json();
+                if (res.ok) return res.json()
             })
     }
 }

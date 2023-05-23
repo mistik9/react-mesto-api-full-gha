@@ -2,10 +2,12 @@ class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._token = options.headers.authorization;
+
     }
 
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
+            
             headers: {
                 authorization: this._token
             }
@@ -48,8 +50,7 @@ class Api {
         })
             .then(res => {
                 if (res.ok) {
-                    console.log(res)
-                    return res.json();
+                     return res.json();
                 }
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
@@ -92,7 +93,8 @@ class Api {
                 if (res.ok) {
                     return res.json();
                 }
-                return Promise.reject(`Ошибка: ${res.status}`);
+               return Promise.reject(`Ошибка: ${res.status}`);
+                
             })
 
     }
