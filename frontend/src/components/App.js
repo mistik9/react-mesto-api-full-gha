@@ -74,15 +74,18 @@ function App() {
   function handleTokenCheck() {
     if (localStorage.getItem("token")) {
       const jwt = localStorage.getItem("token");
+      console.log(jwt)
       auth.checkToken(jwt)
         .then((res) => {
           if (res) {
-            setEmail(res.data.email)
+            console.log(res.email)
+            setEmail(res.email)
             setLoggedIn(true);
             navigate("/", { replace: true })
           }
         })
         .catch((err) => {
+          console.log(err)
           console.log("Ошибка токена")
         })
     }
@@ -103,6 +106,7 @@ function App() {
   React.useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getUserData(), api.getInitialCards()])
+      console.log(userData)
         .then(([userData, cardsData]) => {
           setCurrentUser(userData)
           setCards(cardsData)
@@ -161,6 +165,7 @@ function App() {
 
   //редактирование данных профиля
   function handleUpdateUser(data) {
+    
     api.updateUserData(data)
       .then(res => {
         setCurrentUser(res);

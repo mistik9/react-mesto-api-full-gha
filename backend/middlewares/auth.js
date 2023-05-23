@@ -11,6 +11,7 @@ const auth = (req, res, next) => {
       .send({ message: 'Необходима авторизаци' });
   }
   const token = authorization.replace('Bearer ', '');
+  console.log('token', token);
   let payload;
   try {
     payload = jwt.verify(token, 'some-secret-key');
