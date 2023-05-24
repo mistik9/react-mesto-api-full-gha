@@ -47,6 +47,6 @@ Mesto - интерактивная страница, куда можно доб�
 https://github.com/mistik9/express-mesto-gha
 
   IP 158.160.42.150
-  Frontend https://mesto.nomoredomains.momistik9nster/
+  Frontend https://mistik9mesto.nomoredomains.monster/
   Backend https://api.mistik9mesto.nomoredomains.monster/
 
