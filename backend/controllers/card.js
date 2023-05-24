@@ -40,11 +40,12 @@ const deleteCard = (req, res, next) => {
 };
 
 const createCard = (req, res, next) => {
+
   const { name, link } = req.body;
   const owner = req.user._id;
 
   Card.create({ name, link, owner })
-    .then((card) => {
+      .then((card) => {
       res.status(OK).send(card);
     })
     .catch((err) => {

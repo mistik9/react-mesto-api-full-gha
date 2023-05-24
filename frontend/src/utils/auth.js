@@ -30,6 +30,11 @@ class Auth {
             .then(res => {
                 if (res.ok) return res.json();
             })
+            .then((data) => {
+                localStorage.setItem('jwt', data.token)
+                return data.token
+            })
+
 
     }
     checkToken(token) {

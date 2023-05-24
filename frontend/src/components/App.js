@@ -34,7 +34,6 @@ function App() {
   function handleLogin({ email, password }) {
     auth.authorize(email, password)
       .then((res) => {
-        if (res.token) localStorage.setItem("token", res.token);
         setLoggedIn(true);
         navigate("/", { replace: true });
         setUserData(res.user);
@@ -72,22 +71,19 @@ function App() {
 
   //проверка токена
   function handleTokenCheck() {
-    if (localStorage.getItem("token")) {
-      const jwt = localStorage.getItem("token");
-      auth.checkToken(jwt)
-        .then((res) => {
-
-          if (res) {
-            setEmail(res.email)
-            setLoggedIn(true);
-            navigate("/", { replace: true })
-          }
-        })
-        .catch((err) => {
-          console.log("Ошибка токена")
-        })
-    }
+    auth.checkToken()
+      .then((res) => {
+        if (res) {
+          setEmail(res.email)
+          setLoggedIn(true);
+          navigate("/", { replace: true })
+        }
+      })
+      .catch((err) => {
+        console.log("Ошибка токена")
+      })
   }
+
 
   React.useEffect(() => {
     handleTokenCheck();
@@ -97,7 +93,7 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     setUserData({});
-    localStorage.removeItem("token")
+
   }
 
   //загрузка данных о пользователе и карточек
@@ -105,6 +101,7 @@ function App() {
 
     if (loggedIn) {
       Promise.all([api.getUserData(), api.getInitialCards()])
+
         .then(([userData, cardsData]) => {
           setCurrentUser(userData)
           setCards(cardsData)
@@ -141,6 +138,7 @@ function App() {
   //лайк карточки
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
+  
     (isLiked ? api.doDislike(card._id) : api.doLike(card._id))
       .then((newCard) => {
         setCards((state) =>
@@ -155,7 +153,6 @@ function App() {
     api.deleteCard(card._id)
       .then((res) => {
         const newCard = cards.filter((item) => item._id !== card._id);
-        console.log(newCard)
         setCards(newCard);
       })
       .catch((err) => console.log("не удалилась"));

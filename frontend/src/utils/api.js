@@ -2,12 +2,13 @@ class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._token = options.headers.authorization;
+       
 
     }
 
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
-            
+            credentials: 'include',
             headers: {
                 authorization: this._token
             }
@@ -23,6 +24,7 @@ class Api {
 
     getUserData() {
         return fetch(`${this._baseUrl}/users/me`, {
+            credentials: 'include',
             headers: {
                 authorization: this._token
             }
@@ -39,6 +41,7 @@ class Api {
     updateUserData(data) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: {
                 authorization: this._token,
                 'Content-Type': 'application/json'
@@ -50,7 +53,7 @@ class Api {
         })
             .then(res => {
                 if (res.ok) {
-                     return res.json();
+                    return res.json();
                 }
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
@@ -60,6 +63,7 @@ class Api {
     updateAvatar(data) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: {
                 authorization: this._token,
                 'Content-Type': 'application/json'
@@ -80,9 +84,10 @@ class Api {
     addNewCard(data) {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 authorization: this._token,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 name: data.name,
@@ -93,8 +98,8 @@ class Api {
                 if (res.ok) {
                     return res.json();
                 }
-               return Promise.reject(`Ошибка: ${res.status}`);
-                
+                return Promise.reject(`Ошибка: ${res.status}`);
+
             })
 
     }
@@ -102,6 +107,7 @@ class Api {
     doLike(_id) {
         return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
             method: 'PUT',
+            credentials: 'include',
             headers: {
                 authorization: this._token
             }
@@ -109,6 +115,7 @@ class Api {
             .then(res => {
                 if (res.ok) {
                     return res.json();
+
                 }
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
@@ -118,6 +125,7 @@ class Api {
     doDislike(_id) {
         return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: {
                 authorization: this._token
             }
@@ -134,8 +142,10 @@ class Api {
     deleteCard(_id) {
         return fetch(`${this._baseUrl}/cards/${_id}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: {
                 authorization: this._token
+
             }
         })
             .then(res => {
@@ -154,7 +164,6 @@ class Api {
 const api = new Api({
     baseUrl: 'http://localhost:3001',
     headers: {
-        authorization: 'e1a3eb7f-14f7-4ac0-a07c-6d12f2e5fdaa',
         'Content-Type': 'application/json'
     }
 });
