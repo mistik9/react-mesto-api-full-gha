@@ -53,7 +53,11 @@ class Auth {
 }
 
 const auth = new Auth({
-    baseUrl: 'http://localhost:3001',
+    baseUrl:  [
+        'https://mistik9mesto.nomoredomains.monster/',
+        'https://api.mistik9mesto.nomoredomains.monster/',
+        'http://localhost:3000',
+      ],
 
 });
 export default auth;

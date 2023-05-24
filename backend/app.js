@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
@@ -25,7 +26,11 @@ mongoose.connect(URL)
   .then(console.log('DB is connected'))
   .catch((err) => console.log(err));
 
-
+  app.get('/crash-test', () => {
+    setTimeout(() => {
+      throw new Error('Сервер сейчас упадёт');
+    }, 0);
+  }); 
 
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
