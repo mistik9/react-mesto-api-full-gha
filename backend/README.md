@@ -1,21 +1,24 @@
 [![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml) [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)
 # Проект Mesto фронтенд + бэкенд
+Mesto - интерактивная страница, куда можно добавлять фотографии, просматривать их, удалять, ставить лайки.
 
+## Обзор
+Проект включает Frontend и Backend части приложения.
+Функциональность приложения доступна авторизованным пользователям. На странице входа можно зарегистрировать нового пользователя или авторизоваться. Реализована аутентификация пользователя. Настроена работа с cookie.
+Бэкенд расположите в директории backend/, а фронтенд - в frontend/.
 
-## Директории
-
-`/routes` — папка с файлами роутера  
-`/controllers` — папка с файлами контроллеров пользователя и карточки   
-`/models` — папка с файлами описания схем пользователя и карточки  
-  
-Остальные директории вспомогательные, создаются при необходимости разработчиком
-
-## Запуск проекта
-
-`npm run start` — запускает сервер   
-`npm run dev` — запускает сервер с hot-reload
 
 ## Стек технологий 
+
+###Frontend:
+- HTML5
+- CSS3
+- Nested БЭМ
+- JavaScript
+- Webpack
+- React JS
+
+###Backend:
 - express.js
 - node.js
 - mongodb
@@ -27,6 +30,7 @@
 - celebrate
 - validator
 - ESLint
+- Winston
 
 ##  Функционал
 - Регистрация пользователя
@@ -40,5 +44,9 @@
 - Переключение лайка карточки
 - Удаление карточки
 
-
 https://github.com/mistik9/express-mesto-gha
+
+  IP 158.160.42.150
+  Frontend https://mesto.nomoredomains.momistik9nster/
+  Backend https://api.mistik9mesto.nomoredomains.monster/
+
