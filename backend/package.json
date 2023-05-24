@@ -31,7 +31,8 @@
     "mongoose": "^7.0.4",
     "validator": "^13.9.0",
     "winston": "^3.8.2",
-    "winston-express": "^0.1.1"
+    "winston-express": "^0.1.1",
+    "dotenv": "^16.0.3"
   },
   "repository": {
     "type": "git",
