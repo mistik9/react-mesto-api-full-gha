@@ -105,7 +105,7 @@ class Api {
     }
 
     doLike(_id) {
-        return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'PUT',
             credentials: 'include',
             headers: {
@@ -123,7 +123,7 @@ class Api {
     }
 
     doDislike(_id) {
-        return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'DELETE',
             credentials: 'include',
             headers: {

@@ -21,13 +21,13 @@ cardRouter.post('/', celebrate({
   }),
 }), createCard);
 
-cardRouter.put('/likes/:cardId', celebrate({
+cardRouter.put('/:cardId/likes', celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().alphanum().length(24),
   }),
 }), likeCard);
 
-cardRouter.delete('/likes/:cardId', celebrate({
+cardRouter.delete('/:cardId/likes', celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().alphanum().length(24),
   }),
