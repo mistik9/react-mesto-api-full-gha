@@ -13,7 +13,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const { cors } = require('./middlewares/cors');
 const cookieParser = require('cookie-parser');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const URL = 'mongodb://127.0.0.1:27017/mestodb';
 
 const app = express();
