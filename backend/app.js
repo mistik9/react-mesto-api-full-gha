@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
+const cookieParser = require('cookie-parser');
 
 const { NOT_FOUND } = require('./utils/constants');
 const {
@@ -11,14 +12,13 @@ const {
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
 const { cors } = require('./middlewares/cors');
-const cookieParser = require('cookie-parser');
 
 const { PORT = 3000 } = process.env;
 const URL = 'mongodb://127.0.0.1:27017/mestodb';
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 
 app.use(cors);
 
@@ -26,11 +26,11 @@ mongoose.connect(URL)
   .then(console.log('DB is connected'))
   .catch((err) => console.log(err));
 
-  app.get('/crash-test', () => {
-    setTimeout(() => {
-      throw new Error('Сервер сейчас упадёт');
-    }, 0);
-  }); 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
