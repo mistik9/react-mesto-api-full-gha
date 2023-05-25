@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
 
-const NotFoundError = require('./utils/NotFoundError');
+const NotFoundError = require('./utils/errors/NotFoundError');
 const {
   userRouter, cardRouter, signupRouter, signinRouter,
 } = require('./routes/index');
@@ -41,9 +41,7 @@ app.use(auth);
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
 
-app.use((req, res, next) => {
-  return next (new NotFoundError('Cтраница не найдена'))
-});
+app.use((req, res, next) => next(new NotFoundError('Cтраница не найдена')));
 
 app.use(errorLogger);
 app.use(errors());
