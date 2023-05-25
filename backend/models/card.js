@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { RegExp } = require('../utils/constants');
+const { REGEX_URL } = require('../utils/constants');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -12,7 +12,7 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле не может быть пустым'],
     validate: {
-      validator: (v) => RegExp.test(v),
+      validator: (v) => REGEX_URL.test(v),
       message: 'Неправильный формат ссылки',
     },
   },

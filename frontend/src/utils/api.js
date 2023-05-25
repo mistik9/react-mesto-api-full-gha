@@ -163,8 +163,8 @@ class Api {
 
 const api = new Api({
     baseUrl:  [
-        'https://api.mistik9mesto.nomoredomains.monster',
-        // 'http://localhost:3001',
+        // 'https://api.mistik9mesto.nomoredomains.monster',
+       'http://localhost:3001',
       ],
     headers: {
         'Content-Type': 'application/json'

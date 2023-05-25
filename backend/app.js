@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
 
-const { NOT_FOUND } = require('./utils/constants');
+const NotFoundError = require('./utils/NotFoundError');
 const {
   userRouter, cardRouter, signupRouter, signinRouter,
 } = require('./routes/index');
@@ -14,7 +14,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const { cors } = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const URL = 'mongodb://127.0.0.1:27017/mestodb';
 
 const app = express();
@@ -41,9 +41,10 @@ app.use(auth);
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
 
-app.use((req, res) => {
-  res.status(NOT_FOUND).send({ message: 'Страница не найдена' });
+app.use((req, res, next) => {
+  return next (new NotFoundError('Cтраница не найдена'))
 });
+
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);

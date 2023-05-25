@@ -6,7 +6,7 @@ const NOT_FOUND = 404;
 const CONFLICT = 409;
 const INTERNAL_SERVER = 500;
 
-const RegExp = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/im;
+const REGEX_URL = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/im;
 
 module.exports = {
   OK,
@@ -16,5 +16,5 @@ module.exports = {
   NOT_FOUND,
   CONFLICT,
   INTERNAL_SERVER,
-  RegExp,
+  REGEX_URL,
 };

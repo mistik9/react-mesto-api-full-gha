@@ -30,10 +30,6 @@ class Auth {
             .then(res => {
                 if (res.ok) return res.json();
             })
-            .then((data) => {
-                localStorage.setItem('jwt', data.token)
-                return data.token
-            })
 
 
     }
@@ -54,8 +50,8 @@ class Auth {
 
 const auth = new Auth({
     baseUrl: [
-        'https://api.mistik9mesto.nomoredomains.monster',
-        // 'http://localhost:3000',
+// 'https://api.mistik9mesto.nomoredomains.monster',
+      'http://localhost:3001',
     ],
 
 });
