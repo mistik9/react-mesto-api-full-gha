@@ -8,16 +8,16 @@ const auth = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    return next (new AuthError('Необходима авторизация'));
+    return next(new AuthError('Необходима авторизация'));
   }
 
   let payload;
-  
+
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
     req.user = payload;
   } catch (err) {
-    return next (new AuthError('Необходима авторизация'));
+    return next(new AuthError('Необходима авторизация'));
   }
 
   return next();
