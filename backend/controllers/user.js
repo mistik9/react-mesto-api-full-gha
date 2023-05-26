@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { OK } = require('../utils/constants');
 const {
-  AuthError, BadRequestError, ConflictError, NotFoundError,
+  BadRequestError, ConflictError, NotFoundError,
 } = require('../utils/errors/index');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -124,7 +124,6 @@ const login = (req, res, next) => {
         httpOnly: true,
       })
         .send({ token });
-      next(new AuthError('Неправильные почта и пароль'));
     })
     .catch(next);
 };
