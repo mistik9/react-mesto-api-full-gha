@@ -39,7 +39,6 @@ class Auth {
             credentials: "include",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
             }
         })
             .then(res => {
@@ -50,8 +49,8 @@ class Auth {
 
 const auth = new Auth({
     baseUrl: [
-'https://api.mistik9mesto.nomoredomains.monster',
-    //   'http://localhost:3001',
+      'https://api.mistik9mesto.nomoredomains.monster',
+        //  'http://localhost:3001',
     ],
 
 });

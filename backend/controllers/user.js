@@ -128,7 +128,7 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.logout = (req, res) => {
+const logout = (req, res) => {
   res.clearCookie('jwt').send();
 };
 
@@ -140,4 +140,5 @@ module.exports = {
   updateUser,
   updateAvatar,
   login,
+  logout,
 };

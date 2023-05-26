@@ -1,17 +1,13 @@
 class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
-        this._token = options.headers.authorization;
-       
+
 
     }
 
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
             credentials: 'include',
-            headers: {
-                authorization: this._token
-            }
         })
             .then(res => {
                 if (res.ok) {
@@ -25,9 +21,6 @@ class Api {
     getUserData() {
         return fetch(`${this._baseUrl}/users/me`, {
             credentials: 'include',
-            headers: {
-                authorization: this._token
-            }
         })
             .then(res => {
                 if (res.ok) {
@@ -43,7 +36,6 @@ class Api {
             method: 'PATCH',
             credentials: 'include',
             headers: {
-                authorization: this._token,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -65,7 +57,6 @@ class Api {
             method: 'PATCH',
             credentials: 'include',
             headers: {
-                authorization: this._token,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -86,7 +77,6 @@ class Api {
             method: 'POST',
             credentials: 'include',
             headers: {
-                authorization: this._token,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -108,9 +98,6 @@ class Api {
         return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'PUT',
             credentials: 'include',
-            headers: {
-                authorization: this._token
-            }
         })
             .then(res => {
                 if (res.ok) {
@@ -126,35 +113,28 @@ class Api {
         return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
             method: 'DELETE',
             credentials: 'include',
-            headers: {
-                authorization: this._token
-            }
-        })
+         })
             .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
+            if (res.ok) {
+    return res.json();
+}
+return Promise.reject(`Ошибка: ${res.status}`);
             })
 
     }
 
-    deleteCard(_id) {
-        return fetch(`${this._baseUrl}/cards/${_id}`, {
-            method: 'DELETE',
-            credentials: 'include',
-            headers: {
-                authorization: this._token
-
+deleteCard(_id) {
+    return fetch(`${this._baseUrl}/cards/${_id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+    })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
             }
+            return Promise.reject(`Ошибка: ${res.status}`);
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-            })
-    }
+}
 
 }
 
@@ -162,10 +142,10 @@ class Api {
 
 
 const api = new Api({
-    baseUrl:  [
-    'https://api.mistik9mesto.nomoredomains.monster',
-    //   'http://localhost:3001',
-      ],
+    baseUrl: [
+       'https://api.mistik9mesto.nomoredomains.monster',
+        // 'http://localhost:3001',
+    ],
     headers: {
         'Content-Type': 'application/json'
     }

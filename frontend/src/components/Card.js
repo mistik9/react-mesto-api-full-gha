@@ -4,8 +4,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Card({ card, onCardClick, onDeleteClick, onCardLike }) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
-  console.log('current ==>', currentUser._id)
-  console.log('card.owner ==>', card.owner )
+  console.log('isOwn ==>', isOwn )
   const isLiked = card.likes.some(i => i._id === currentUser._id);
   const cardLikeButtonClassName = (
     `element__bottom-like ${isLiked && "element__bottom-like_active"}`
