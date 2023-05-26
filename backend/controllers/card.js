@@ -20,15 +20,15 @@ const deleteCard = (req, res, next) => {
     })
     .then((card) => {
       const { owner: cardOwnerId } = card;
-      Card.deleteOne()
-        .then(() => {
-          if (cardOwnerId.valueOf() !== req.user._id) {
-            throw new ForbiddenError('Карточка не прнадлежит пользователю');
-          } else {
+      if (cardOwnerId.valueOf() === req.user._id) {
+        Card.deleteOne()
+          .then(() => {
             res.status(OK).send({ message: 'Карточка удалена' });
-          }
-        })
-        .catch(next);
+          })
+          .catch(next);
+      } else {
+        throw new ForbiddenError('Карточка не прнадлежит пользователю');
+      }
     })
     .catch((err) => {
       if (err.name === 'CastError') {
